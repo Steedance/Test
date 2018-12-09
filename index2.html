@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Game</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee;  display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+
+        function drawSquare (length, x, y) {
+            this.length = length;
+            this.x = x;
+            this.y = y;
+            ctx.beginPath();
+            ctx.fillRect(x, y, length, length);
+            ctx.closePath();
+        }
+
+        function square (xx, yy, llength) {
+            this.xx = xx;
+            this.yy = yy;
+            this.llength = llength;
+        }
+        const slots = {xx: 50, yy: 50, llength: 140};
+        // var i;
+        // for (i = 0; i < 9; i++) {
+        //     slots[i + 1].llength = 140;
+        // }
+
+        function update () {
+            drawSquare(slots.llength, slots.xx, slots.yy);
+            drawSquare(140, 230, 45);
+            drawSquare(140, 415, 45);
+            drawSquare(140, 45, 230);
+            drawSquare(140, 230, 230);
+            drawSquare(140, 415, 230);
+            drawSquare(140, 45, 415);
+            drawSquare(140, 230, 415);
+            drawSquare(140, 415, 415);
+        }
+        setInterval(update, 10);
+    </script>
+
+</body>
+</html>
